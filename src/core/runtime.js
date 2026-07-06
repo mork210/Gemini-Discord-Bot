@@ -22,6 +22,7 @@ export const client = new Client({
   ],
   partials: [Partials.Channel],
 });
+client.on('debug', (info) => console.log('[DISCORD DEBUG]', info));
 
 if (config.enableGeminiApiLogging) {
   initializeGeminiApiLogging();
