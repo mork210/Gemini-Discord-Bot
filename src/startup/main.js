@@ -1,9 +1,11 @@
 import { initializeBot } from './initializeBot.js';
 import { client, token } from '../core/runtime.js';
 import { registerBotHandlers } from '../bootstrap.js';
+import { startKeepAliveServer } from '../core/keepAliveServer.js';
 
 async function start() {
   try {
+    startKeepAliveServer();
     await initializeBot();
     registerBotHandlers();
     await client.login(token);
@@ -13,5 +15,4 @@ async function start() {
     process.exit(1);
   }
 }
-
 start();
